@@ -23,6 +23,10 @@
     "hast-util-select": "^4.0.0",
     "unist-util-visit": "^2.0.3"
   },
+  "bugs": {
+    "url": "https://github.com/florentb/rehype-wrap-all/issues"
+  },
+  "homepage": "https://github.com/florentb/rehype-wrap-all#readme",
   "devDependencies": {
     "rehype": "^11.0.0",
     "rehype-stringify": "^8.0.0",
@@ -30,5 +34,9 @@
     "remark-rehype": "^7.0.0",
     "tap": "^14.10.8",
     "unified": "^9.2.0"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/florentb/rehype-wrap-all.git"
   }
 }
