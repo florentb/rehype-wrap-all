@@ -3,6 +3,7 @@
 > Wrap matching elements with a given element
 
 [![Build Status](https://travis-ci.org/florentb/rehype-wrap-all.svg?branch=master)](https://travis-ci.org/florentb/rehype-wrap-all)
+[![Coverage Status](https://coveralls.io/repos/github/florentb/rehype-wrap-all/badge.svg?branch=master)](https://coveralls.io/github/florentb/rehype-wrap-all?branch=master)
 
 ## Install
 
