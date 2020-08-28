@@ -7,7 +7,8 @@
     "node": ">=8.0"
   },
   "scripts": {
-    "test": "tap --100 -Rspec test.js"
+    "test": "tap --100 -Rspec test.js",
+    "posttest": "nyc report --reporter=text-lcov | coveralls"
   },
   "keywords": [
     "rehype",
@@ -28,6 +29,7 @@
   },
   "homepage": "https://github.com/florentb/rehype-wrap-all#readme",
   "devDependencies": {
+    "coveralls": "^3.1.0",
     "rehype": "^11.0.0",
     "rehype-stringify": "^8.0.0",
     "remark-parse": "^8.0.3",
