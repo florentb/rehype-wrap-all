@@ -2,6 +2,8 @@
 
 > Wrap matching elements with a given element
 
+[![Build Status](https://travis-ci.org/florentb/rehype-wrap-all.svg?branch=master)](https://travis-ci.org/florentb/rehype-wrap-all)
+
 ## Install
 
 ```sh
