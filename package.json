@@ -1,6 +1,6 @@
 {
   "name": "rehype-wrap-all",
-  "version": "1.0.1",
+  "version": "1.1.0",
   "description": "wrap all matching elements with a given element",
   "main": "index.js",
   "engines": {
