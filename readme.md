@@ -41,7 +41,7 @@ Element to wrap around *`wrap.selector`*. Expects a string *`selector`* that can
 ```sh
 # dependencies
 
-npm i unified to-vfile remark-parse remark-rehype vfile-reporter rehype-document rehype-stringify remark-wrap-all
+npm i unified to-vfile remark-parse remark-rehype vfile-reporter rehype-document rehype-stringify rehype-wrap-all
 ```
 
 ```md
@@ -121,9 +121,9 @@ unified()
 
 Rehype-wrap-all is an adaptation of Paul Zimmer [rehype-wrap](https://github.com/mrzmmr/rehype-wrap). It depends on a few great packages you should check out. 
 
-- [hast-util-parse-selector](https://github.com/syntax-tree/hast-util-parse-selector) - used to parse a selector into an element. 
-- [hast-util-select](https://github.com/syntax-tree/hast-util-select) - used to select an element to wrap. 
-- [unist-util-visit](https://github.com/syntax-tree/unist-util-visit) - used to visit elements and their parent element.
+-   [hast-util-parse-selector](https://github.com/syntax-tree/hast-util-parse-selector) - used to parse a selector into an element. 
+-   [hast-util-select](https://github.com/syntax-tree/hast-util-select) - used to select an element to wrap. 
+-   [unist-util-visit](https://github.com/syntax-tree/unist-util-visit) - used to visit elements and their parent element.
 
 ## License
 
