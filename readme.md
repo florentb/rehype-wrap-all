@@ -18,11 +18,13 @@ const wrap = require('rehype-wrap-all')
 const rehype = require('rehype')
 
 rehype()
-  .use(wrap, {/* options */})
+  .use(wrap, /* options (object or array) */)
   .process(/* html string */)
   .then(/* vfile */)
   .catch(/* handle any errors */)
 ```
+
+> Note that you can use an **array of options** if you want to wrap multiple elements with different wrappers
 
 ## Options
 
