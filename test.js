@@ -9,6 +9,8 @@ const rehypeStringify = require('rehype-stringify');
 const wrapAll = require('.');
 
 const markdown = `
+> blockquote
+
 | row |
 | --- |
 
@@ -33,7 +35,7 @@ test('rehype-wrap-all', t => {
       () => {
         vfile = process(wrapAll, null, markdown);
       },
-      /Expected a `string` as selector/,
+      /Expected a `string` or an `array` as options/,
       ' if no options are given'
     );
 
@@ -52,6 +54,29 @@ test('rehype-wrap-all', t => {
       /Expected a `string` as selector/,
       ' if selector is not a string'
     );
+
+    it.throws(
+      () => {
+        vfile = process(wrapAll, [null], markdown);
+      },
+      ' if options array is empty'
+    );
+
+    it.throws(
+      () => {
+        vfile = process(wrapAll, [{ wrapper: 1 }], markdown);
+      },
+      /Expected a `string` as wrapper/,
+      ' if wrapper is not a string'
+    );
+
+    it.throws(
+      () => {
+        vfile = process(wrapAll, [{ selector: 1 }], markdown);
+      },
+      /Expected a `string` as selector/,
+      ' if selector is not a string'
+    );
     it.end();
   });
 
@@ -63,6 +88,9 @@ test('rehype-wrap-all', t => {
       it.ok(
         vfile.toString() ===
         [
+          '<blockquote>',
+          '<p>blockquote</p>',
+          '</blockquote>',
           '<div><table>',
           '<thead>',
           '<tr>',
@@ -100,7 +128,10 @@ test('rehype-wrap-all', t => {
       it.ok(
         vfileWithBody ===
         [
-          '<html><head></head><body><div><table>',
+          '<html><head></head><body><blockquote>',
+          '<p>blockquote</p>',
+          '</blockquote>',
+          '<div><table>',
           '<thead>',
           '<tr>',
           '<th>row</th>',
@@ -134,6 +165,9 @@ test('rehype-wrap-all', t => {
       it.ok(
         vfile.toString() ===
         [
+          '<blockquote>',
+          '<p>blockquote</p>',
+          '</blockquote>',
           '<section><table>',
           '<thead>',
           '<tr>',
@@ -154,6 +188,43 @@ test('rehype-wrap-all', t => {
           '</table></section>',
         ].join('\n'),
         'should wrap tables with a section'
+      );
+
+      vfile = process(
+        wrapAll,
+        [
+          { selector: "blockquote" },
+          { selector: "table", wrapper: "div" }
+        ],
+        markdown
+      );
+
+      it.ok(
+        vfile.toString() ===
+        [
+          '<div><blockquote>',
+          '<p>blockquote</p>',
+          '</blockquote></div>',
+          '<div><table>',
+          '<thead>',
+          '<tr>',
+          '<th>row</th>',
+          '</tr>',
+          '</thead>',
+          '<tbody>',
+          '</tbody>',
+          '</table></div>',
+          '<div><table>',
+          '<thead>',
+          '<tr>',
+          '<th>row</th>',
+          '</tr>',
+          '</thead>',
+          '<tbody>',
+          '</tbody>',
+          '</table></div>',
+        ].join('\n'),
+        'should wrap tables and blockquotes with a div'
       );
 
     });
